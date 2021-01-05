@@ -28,8 +28,11 @@ const mobileSchema = new mongoose.Schema({
    height: Number, 
    photos: String, 
    reviews: [{ 
-      customerName: String, 
-      body: String 
+      body: String, 
+      userInfo: { 
+         type: mongoose.Schema.ObjectId, 
+         ref: 'User' 
+      } 
    }] 
 }) 
 
