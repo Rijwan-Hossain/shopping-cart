@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
-const User = require('../models/User')
+const User = require('../models/User') 
 
 const signupUser = async (req, res) => { 
    try { 
@@ -38,7 +38,7 @@ const signinUser = async (req, res) => {
             message: 'Wrong Email' 
          }) 
       } 
-
+      
       // Match password 
       const result = await bcrypt.compare(password, user.password) 
       if(!result) { 
@@ -47,7 +47,7 @@ const signinUser = async (req, res) => {
             message: 'Wrong Password' 
          }) 
       } 
-
+      
       // Create & send JWT token 
       const token = jwt.sign( 
          {_id: user._id}, 

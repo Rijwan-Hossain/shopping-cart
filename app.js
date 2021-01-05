@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const userRouter = require('./routes/user') 
 const authRouter = require('./routes/auth') 
+const mobileRouter = require('./routes/mobile')
 
 // Create App 
 const app = express() 
@@ -18,6 +19,7 @@ const port = process.env.PORT
 // App Routes
 app.use('/', authRouter) 
 app.use('/user', userRouter) 
+app.use('/mobile', mobileRouter) 
 
 app.get('*', (req, res) => { 
    res.send('404 Not Found') 

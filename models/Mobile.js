@@ -5,27 +5,23 @@ const mobileSchema = new mongoose.Schema({
       type: String, 
       required: true 
    }, 
-   name: { 
-      type: String, 
-      required: true 
-   },
-   price: { 
-      type: Number, 
-      required: true 
-   },
    model: { 
       type: String, 
       required: true 
    }, 
-   ram: { 
+   price: { 
       type: Number, 
       required: true 
+   },
+   ram: { 
+      type: String, 
+      required: true 
    }, 
-   rom: Number, 
-   camera: Number, 
-   batteryLife: Number, 
-   weight: Number, 
-   height: Number, 
+   rom: String, 
+   camera: String, 
+   batteryLife: String, 
+   weight: String, 
+   height: String, 
    photos: String, 
    reviews: [{ 
       body: String, 
