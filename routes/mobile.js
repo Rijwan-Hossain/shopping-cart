@@ -6,8 +6,9 @@ const {
    getAllMobile, 
    getSingleMobile, 
    updateMobile, 
-   deleteMobile
-} = require('../controllers/mobileController')
+   deleteMobile, 
+   createReview
+} = require('../controllers/mobileController') 
 const route = express.Router(); 
 
 route.post('/', routeProtection, createMobile) 

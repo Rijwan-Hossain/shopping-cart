@@ -35,7 +35,18 @@ const getAllMobile = async (req, res) => {
 const getSingleMobile = async (req, res) => { 
    try { 
       const {id} = req.params 
-      const mobile = await Mobile.findById(id) 
+      const mobile = await Mobile.findById(id)
+         .populate({
+            path: 'reviews', 
+            model: 'Review', 
+            populate: {
+               path: 'user', 
+               model: 'User' 
+            }
+         }) 
+      console.log(mobile);
+      // const a = await mobile.populate('reviews')
+      // console.log(a);
       res.json({ 
          status: 'Success', 
          info: mobile 
@@ -81,12 +92,12 @@ const deleteMobile = async (req, res) => {
          error 
       }) 
    } 
-}
+} 
 
-module.exports = {
+module.exports = { 
    createMobile, 
    getAllMobile, 
    getSingleMobile, 
    updateMobile, 
-   deleteMobile
-}
+   deleteMobile 
+} 

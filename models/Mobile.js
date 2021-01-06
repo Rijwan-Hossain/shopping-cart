@@ -24,14 +24,19 @@ const mobileSchema = new mongoose.Schema({
    height: String, 
    photos: String, 
    reviews: [{ 
-      body: String, 
-      userInfo: { 
-         type: mongoose.Schema.ObjectId, 
-         ref: 'User' 
-      } 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'Review' 
    }] 
 }) 
 
+// mobileSchema.pre(/^find/, function (next) { 
+//    console.log('in pre'); 
+//    this.populate({ 
+//       path: 'reviews' 
+//    }) 
+
+//    next() 
+// }) 
 
 const Mobile = mongoose.model('Mobile', mobileSchema); 
 module.exports = Mobile; 

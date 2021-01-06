@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
          message: 'Please enter a valid email'
       } 
    },
+   avatar: String, 
    age: { 
       type: Number, 
       default: 19 

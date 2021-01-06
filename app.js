@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const userRouter = require('./routes/user') 
 const authRouter = require('./routes/auth') 
 const mobileRouter = require('./routes/mobile')
+const reviewRouter = require('./routes/review')
 
 // Create App 
 const app = express() 
@@ -20,7 +21,9 @@ const port = process.env.PORT
 app.use('/', authRouter) 
 app.use('/user', userRouter) 
 app.use('/mobile', mobileRouter) 
+app.use('/mobile/:mobileId/review', reviewRouter) 
 
+// 404 route
 app.get('*', (req, res) => { 
    res.send('404 Not Found') 
 }) 
